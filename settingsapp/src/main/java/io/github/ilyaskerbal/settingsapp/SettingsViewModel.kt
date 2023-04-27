@@ -25,4 +25,6 @@ class SettingsViewModel: ViewModel() {
 		started = SharingStarted.WhileSubscribed(),
 		initialValue = SettingsState()
 	)
+
+	fun toggleNotification(state: Boolean) = _notificationEnabled.update { state }
 }
