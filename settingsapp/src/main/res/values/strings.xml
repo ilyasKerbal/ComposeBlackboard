@@ -1,3 +1,35 @@
 <resources>
     <string name="app_name">SettingsApp</string>
+
+    <!-- App strings -->
+    <string name="app_title">Settings</string>
+
+    <string name="notification_title">Enable Notifications</string>
+
+    <string name="hints_title">Show Hints</string>
+
+    <string name="subscription_title">Manage Subscription</string>
+
+    <string name="marketing_title">Receive Marketing Emails</string>
+
+    <string name="theme_title">Theme</string>
+
+    <string name="version_title">App Version</string>
+
+    <!-- App options -->
+
+    <string-array name="marketing_options">
+        <item>Opt-in for marketing emails</item>
+        <item>Don\'t send me emails</item>
+    </string-array>
+
+    <string-array name="theme_options">
+        <item>System</item>
+        <item>Light</item>
+        <item>Dark</item>
+    </string-array>
+
+    <!-- Content descriptions -->
+
+
 </resources>
