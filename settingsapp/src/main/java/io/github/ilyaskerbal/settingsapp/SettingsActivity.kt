@@ -10,6 +10,7 @@ import androidx.compose.material.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.tooling.preview.Preview
+import io.github.ilyaskerbal.settingsapp.ui.elements.SettingsScreen
 import io.github.ilyaskerbal.settingsapp.ui.theme.ComposeBlackboardTheme
 
 class SettingsActivity : ComponentActivity() {
@@ -18,12 +19,7 @@ class SettingsActivity : ComponentActivity() {
 		setContent {
 			ComposeBlackboardTheme {
 				// A surface container using the 'background' color from the theme
-				Surface(
-					modifier = Modifier.fillMaxSize(),
-					color = MaterialTheme.colors.background
-				) {
-
-				}
+				SettingsScreen()
 			}
 		}
 	}
