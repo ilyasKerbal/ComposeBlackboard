@@ -52,6 +52,8 @@ fun SettingsList(
 			currentOption = uiState.marketingOption,
 			onOptionChange = viewModel::changeMarketingOption
 		)
+		Divider()
+
 	}
 }
 

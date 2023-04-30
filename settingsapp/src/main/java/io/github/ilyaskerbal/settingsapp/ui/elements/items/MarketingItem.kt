@@ -49,14 +49,14 @@ fun MarketingItem(
 							role = Role.RadioButton
 						)
 						.fillMaxWidth()
-						.padding(10.dp)
+						.padding(dimensionResource(id = R.dimen.option_row_padding))
 				) {
 					RadioButton(
 						selected = index == currentOption.index,
 						onClick = null
 					)
 					Text(
-						modifier = Modifier.padding(start = 10.dp),
+						modifier = Modifier.padding(start = dimensionResource(id = R.dimen.options_start_padding)),
 						text = option
 					)
 				}
