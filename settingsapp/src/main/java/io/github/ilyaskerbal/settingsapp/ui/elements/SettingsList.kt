@@ -9,9 +9,11 @@ import androidx.compose.runtime.Composable
 import androidx.compose.runtime.collectAsState
 import androidx.compose.runtime.getValue
 import androidx.compose.ui.Modifier
+import androidx.compose.ui.tooling.preview.Preview
 import androidx.lifecycle.viewmodel.compose.viewModel
 import io.github.ilyaskerbal.settingsapp.R
 import io.github.ilyaskerbal.settingsapp.SettingsViewModel
+import io.github.ilyaskerbal.settingsapp.ui.elements.items.HintsItem
 
 @Composable
 fun SettingsList(
@@ -31,5 +33,17 @@ fun SettingsList(
 			onToggle = viewModel::toggleNotification
 		)
 		Divider()
+		HintsItem(
+			title = R.string.hints_title,
+			onToggle = viewModel::toggleHints,
+			state = uiState.showHintsEnabled
+		)
+		Divider()
 	}
+}
+
+@Preview
+@Composable
+private fun SettingsListPreview() {
+	SettingsList()
 }
