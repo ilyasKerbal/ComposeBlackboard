@@ -19,7 +19,7 @@ import androidx.compose.ui.tooling.preview.Preview
 import io.github.ilyaskerbal.settingsapp.R
 
 @Composable
-fun NotificationIem(
+fun NotificationItem(
 	modifier: Modifier = Modifier,
 	@StringRes title: Int,
 	onToggle: (Boolean) -> Unit = {},
@@ -56,11 +56,11 @@ fun NotificationIem(
 @Preview
 @Composable
 private fun NotificationIemPreviewTrue() {
-	NotificationIem(title = R.string.notification_title, state = true)
+	NotificationItem(title = R.string.notification_title, state = true)
 }
 
 @Preview
 @Composable
 private fun NotificationIemPreviewFalse() {
-	NotificationIem(title = R.string.notification_title, state = false)
+	NotificationItem(title = R.string.notification_title, state = false)
 }

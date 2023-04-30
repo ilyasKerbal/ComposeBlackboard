@@ -11,7 +11,6 @@ import androidx.compose.runtime.getValue
 import androidx.compose.ui.Modifier
 import androidx.lifecycle.viewmodel.compose.viewModel
 import io.github.ilyaskerbal.settingsapp.R
-import io.github.ilyaskerbal.settingsapp.SettingsState
 import io.github.ilyaskerbal.settingsapp.SettingsViewModel
 
 @Composable
@@ -26,7 +25,7 @@ fun SettingsList(
 			.fillMaxSize()
 			.verticalScroll(state = rememberScrollState())
 	) {
-		NotificationIem(
+		NotificationItem(
 			title = R.string.notification_title,
 			state = uiState.notificationEnabled,
 			onToggle = viewModel::toggleNotification
