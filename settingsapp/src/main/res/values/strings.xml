@@ -38,4 +38,6 @@
     <string name="cd_hints_enabled">Hints enabled</string>
     <string name="cd_hints_disabled">Hints disabled</string>
 
+    <string name="cd_subscription_click">Open subscription settings</string>
+
 </resources>

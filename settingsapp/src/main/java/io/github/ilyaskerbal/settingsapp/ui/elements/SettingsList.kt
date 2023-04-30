@@ -2,6 +2,7 @@ package io.github.ilyaskerbal.settingsapp.ui.elements
 
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.fillMaxSize
+import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.rememberScrollState
 import androidx.compose.foundation.verticalScroll
 import androidx.compose.material.Divider
@@ -14,6 +15,7 @@ import androidx.lifecycle.viewmodel.compose.viewModel
 import io.github.ilyaskerbal.settingsapp.R
 import io.github.ilyaskerbal.settingsapp.SettingsViewModel
 import io.github.ilyaskerbal.settingsapp.ui.elements.items.HintsItem
+import io.github.ilyaskerbal.settingsapp.ui.elements.items.SubscriptionItem
 
 @Composable
 fun SettingsList(
@@ -39,6 +41,9 @@ fun SettingsList(
 			state = uiState.showHintsEnabled
 		)
 		Divider()
+		SubscriptionItem(
+			title = R.string.subscription_title
+		)
 	}
 }
 
