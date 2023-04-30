@@ -6,6 +6,7 @@ import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.Row
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.padding
+import androidx.compose.foundation.selection.selectable
 import androidx.compose.material.RadioButton
 import androidx.compose.material.Text
 import androidx.compose.runtime.Composable
@@ -43,9 +44,9 @@ fun MarketingItem(
 			options.forEachIndexed { index, option ->
 				Row(
 					modifier = Modifier
-						.clickable(
+						.selectable(
 							onClick = { onOptionChange(index) },
-							onClickLabel = option,
+							selected = index == currentOption.index,
 							role = Role.RadioButton
 						)
 						.fillMaxWidth()
