@@ -30,7 +30,9 @@
     </string-array>
 
     <!-- Content descriptions -->
-
     <string name="cd_back_button">Back button</string>
+
+    <string name="cd_notifications_enabled">Notifications enabled</string>
+    <string name="cd_notifications_disabled">Notifications disabled</string>
 
 </resources>
