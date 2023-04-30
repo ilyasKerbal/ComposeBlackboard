@@ -29,4 +29,6 @@ class SettingsViewModel: ViewModel() {
 	fun toggleNotification(state: Boolean) = _notificationEnabled.update { state }
 
 	fun toggleHints(sate: Boolean) = _hintsEnabled.update { sate }
+
+	fun changeMarketingOption(index: Int) = _marketingOption.update { MarketingOption.fromIndex(index) }
 }

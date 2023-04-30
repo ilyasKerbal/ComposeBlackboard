@@ -15,6 +15,7 @@ import androidx.lifecycle.viewmodel.compose.viewModel
 import io.github.ilyaskerbal.settingsapp.R
 import io.github.ilyaskerbal.settingsapp.SettingsViewModel
 import io.github.ilyaskerbal.settingsapp.ui.elements.items.HintsItem
+import io.github.ilyaskerbal.settingsapp.ui.elements.items.MarketingItem
 import io.github.ilyaskerbal.settingsapp.ui.elements.items.SpacerItem
 import io.github.ilyaskerbal.settingsapp.ui.elements.items.SubscriptionItem
 
@@ -46,6 +47,11 @@ fun SettingsList(
 			title = R.string.subscription_title
 		)
 		SpacerItem()
+		MarketingItem(
+			title = R.string.marketing_title,
+			currentOption = uiState.marketingOption,
+			onOptionChange = viewModel::changeMarketingOption
+		)
 	}
 }
 
