@@ -34,5 +34,8 @@
 
     <string name="cd_notifications_enabled">Notifications enabled</string>
     <string name="cd_notifications_disabled">Notifications disabled</string>
+    
+    <string name="cd_hints_enabled">Hints enabled</string>
+    <string name="cd_hints_disabled">Hints disabled</string>
 
 </resources>

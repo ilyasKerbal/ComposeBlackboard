@@ -13,8 +13,9 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.res.dimensionResource
 import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.semantics.Role
+import androidx.compose.ui.semantics.semantics
+import androidx.compose.ui.semantics.stateDescription
 import androidx.compose.ui.tooling.preview.Preview
-import androidx.compose.ui.unit.dp
 import io.github.ilyaskerbal.settingsapp.R
 import io.github.ilyaskerbal.settingsapp.ui.elements.SettingsItem
 
@@ -25,6 +26,10 @@ fun HintsItem(
 	onToggle: (Boolean) -> Unit,
 	state: Boolean
 ) {
+	val itemStateDescription = if (state)
+		stringResource(id = R.string.cd_hints_enabled)
+	else stringResource(id = R.string.cd_hints_disabled)
+
 	SettingsItem(
 		modifier = modifier
 	) {
@@ -35,6 +40,7 @@ fun HintsItem(
 					role = Role.Checkbox,
 					onValueChange = onToggle
 				)
+				.semantics { stateDescription = itemStateDescription }
 				.fillMaxWidth()
 				.padding(dimensionResource(id = R.dimen.item_padding)),
 			verticalAlignment = Alignment.CenterVertically
