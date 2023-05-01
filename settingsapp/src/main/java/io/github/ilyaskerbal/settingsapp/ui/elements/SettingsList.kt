@@ -18,6 +18,7 @@ import io.github.ilyaskerbal.settingsapp.ui.elements.items.HintsItem
 import io.github.ilyaskerbal.settingsapp.ui.elements.items.MarketingItem
 import io.github.ilyaskerbal.settingsapp.ui.elements.items.SpacerItem
 import io.github.ilyaskerbal.settingsapp.ui.elements.items.SubscriptionItem
+import io.github.ilyaskerbal.settingsapp.ui.elements.items.ThemeItem
 
 @Composable
 fun SettingsList(
@@ -53,7 +54,12 @@ fun SettingsList(
 			onOptionChange = viewModel::changeMarketingOption
 		)
 		Divider()
-
+		ThemeItem(
+			title = R.string.theme_title,
+			currentOption = uiState.themeOption,
+			onThemeChange = viewModel::changeThemeOption
+		)
+		SpacerItem()
 	}
 }
 

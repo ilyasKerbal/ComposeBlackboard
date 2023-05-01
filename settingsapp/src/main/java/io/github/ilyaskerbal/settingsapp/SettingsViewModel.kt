@@ -31,4 +31,6 @@ class SettingsViewModel: ViewModel() {
 	fun toggleHints(sate: Boolean) = _hintsEnabled.update { sate }
 
 	fun changeMarketingOption(index: Int) = _marketingOption.update { MarketingOption.fromIndex(index) }
+
+	fun changeThemeOption(index: Int) = _themeOption.update { ThemeOption.fromIndex(index) }
 }

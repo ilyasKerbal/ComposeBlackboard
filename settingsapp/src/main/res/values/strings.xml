@@ -40,4 +40,6 @@
 
     <string name="cd_subscription_click">Open subscription settings</string>
 
+    <string name="cd_select_theme">Select application theme</string>
+
 </resources>
