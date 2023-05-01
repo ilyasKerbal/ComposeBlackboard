@@ -12,8 +12,10 @@ import androidx.compose.runtime.getValue
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.lifecycle.viewmodel.compose.viewModel
+import io.github.ilyaskerbal.settingsapp.BuildConfig
 import io.github.ilyaskerbal.settingsapp.R
 import io.github.ilyaskerbal.settingsapp.SettingsViewModel
+import io.github.ilyaskerbal.settingsapp.ui.elements.items.AppVersionItem
 import io.github.ilyaskerbal.settingsapp.ui.elements.items.HintsItem
 import io.github.ilyaskerbal.settingsapp.ui.elements.items.MarketingItem
 import io.github.ilyaskerbal.settingsapp.ui.elements.items.SpacerItem
@@ -26,6 +28,7 @@ fun SettingsList(
 ) {
 	val viewModel: SettingsViewModel = viewModel()
 	val uiState by viewModel.uiState.collectAsState()
+	val version: String = "v${BuildConfig.VERSION_NAME} (${BuildConfig.VERSION_CODE})"
 
 	Column(
 		modifier = modifier
@@ -60,6 +63,8 @@ fun SettingsList(
 			onThemeChange = viewModel::changeThemeOption
 		)
 		SpacerItem()
+		AppVersionItem(
+			title = R.string.version_title, version = version)
 	}
 }
 
