@@ -11,6 +11,7 @@ import androidx.compose.material.RadioButton
 import androidx.compose.material.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
+import androidx.compose.ui.platform.testTag
 import androidx.compose.ui.res.dimensionResource
 import androidx.compose.ui.res.stringArrayResource
 import androidx.compose.ui.res.stringResource
@@ -20,6 +21,7 @@ import androidx.compose.ui.unit.dp
 import io.github.ilyaskerbal.settingsapp.MarketingOption
 import io.github.ilyaskerbal.settingsapp.R
 import io.github.ilyaskerbal.settingsapp.ui.elements.SettingsItem
+import io.github.ilyaskerbal.settingsapp.ui.elements.Tags
 
 @Composable
 fun MarketingItem(
@@ -44,6 +46,7 @@ fun MarketingItem(
 			options.forEachIndexed { index, option ->
 				Row(
 					modifier = Modifier
+						.testTag(Tags.MARKETING_OPTION + index)
 						.selectable(
 							onClick = { onOptionChange(index) },
 							selected = index == currentOption.index,

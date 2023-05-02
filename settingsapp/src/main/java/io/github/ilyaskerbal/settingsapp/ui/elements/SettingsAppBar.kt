@@ -7,13 +7,14 @@ import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.filled.ArrowBack
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
+import androidx.compose.ui.platform.testTag
 import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.tooling.preview.Preview
 import io.github.ilyaskerbal.settingsapp.R
 
 @Composable
 fun SettingsAppBar(
-	modifier: Modifier = Modifier,
+	modifier: Modifier = Modifier.testTag(Tags.TOP_APP_BAR),
 	@StringRes title: Int,
 	navigation: () -> Unit
 ) {

@@ -17,6 +17,7 @@ import androidx.compose.runtime.remember
 import androidx.compose.runtime.setValue
 import androidx.compose.ui.ExperimentalComposeUiApi
 import androidx.compose.ui.Modifier
+import androidx.compose.ui.platform.testTag
 import androidx.compose.ui.res.dimensionResource
 import androidx.compose.ui.res.stringArrayResource
 import androidx.compose.ui.res.stringResource
@@ -26,6 +27,7 @@ import androidx.compose.ui.window.PopupProperties
 import io.github.ilyaskerbal.settingsapp.R
 import io.github.ilyaskerbal.settingsapp.ThemeOption
 import io.github.ilyaskerbal.settingsapp.ui.elements.SettingsItem
+import io.github.ilyaskerbal.settingsapp.ui.elements.Tags
 
 @OptIn(ExperimentalComposeUiApi::class)
 @Composable
@@ -63,7 +65,8 @@ fun ThemeItem(
 				DropdownMenu(
 					expanded = expended,
 					onDismissRequest = { expended = false },
-					properties = PopupProperties(usePlatformDefaultWidth = true)
+					properties = PopupProperties(usePlatformDefaultWidth = true),
+					modifier = Modifier.testTag(Tags.THEME_POPUP_MENU)
 				) {
 					themeOptions.forEachIndexed { index, theme ->
 						DropdownMenuItem(
