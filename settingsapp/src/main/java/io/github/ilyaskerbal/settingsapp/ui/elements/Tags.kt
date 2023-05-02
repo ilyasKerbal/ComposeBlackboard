@@ -10,4 +10,8 @@ object Tags {
 	const val MARKETING_OPTION = "marketing_option_"
 
 	const val THEME_POPUP_MENU = "theme_popup_menu"
+
+	const val THEME_ITEM = "theme_item"
+
+	const val THEME_OPTION = "theme_option_"
 }

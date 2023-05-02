@@ -46,6 +46,7 @@ fun ThemeItem(
 	) {
 		Row(
 			modifier = Modifier
+				.testTag(Tags.THEME_ITEM)
 				.clickable(
 					onClick = { expended = true },
 					onClickLabel = stringResource(id = R.string.cd_select_theme)
@@ -70,6 +71,7 @@ fun ThemeItem(
 				) {
 					themeOptions.forEachIndexed { index, theme ->
 						DropdownMenuItem(
+							modifier = Modifier.testTag(Tags.THEME_OPTION + index),
 							onClick = {
 								onThemeChange(index)
 								expended = false
