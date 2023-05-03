@@ -9,6 +9,7 @@ import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.res.dimensionResource
 import androidx.compose.ui.res.stringResource
+import androidx.compose.ui.semantics.semantics
 import androidx.compose.ui.tooling.preview.Preview
 import io.github.ilyaskerbal.settingsapp.R
 import io.github.ilyaskerbal.settingsapp.ui.elements.SettingsItem
@@ -26,6 +27,7 @@ fun AppVersionItem(
 			modifier = Modifier
 				.fillMaxWidth()
 				.padding(dimensionResource(id = R.dimen.item_padding))
+				.semantics(mergeDescendants = true){}
 		) {
 			Text(
 				text = stringResource(id = title),
