@@ -1,3 +1,13 @@
 <resources>
     <string name="app_name">Authentication</string>
+
+    <!-- Strings -->
+    <string name="password_requirement_capital_letter">At least 1 upper-case letter</string>
+    <string name="password_requirement_one_digit">At least 1 digit</string>
+    <string name="password_requirement_eight_characters">At least 8 characters</string>
+
+    <string name="log_in">Log in</string>
+    <string name="sign_up">Sign up</string>
+
+    <!-- Content description -->
 </resources>
