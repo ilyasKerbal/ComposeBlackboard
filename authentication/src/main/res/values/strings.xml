@@ -12,5 +12,7 @@
     <string name="form_title_signup">Sign up for an account</string>
     <string name="form_title_loin">Log in to your account</string>
 
+    <string name="email_address">Email address</string>
+
     <!-- Content description -->
 </resources>

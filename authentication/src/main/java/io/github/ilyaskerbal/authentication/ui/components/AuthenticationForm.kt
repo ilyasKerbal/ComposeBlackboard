@@ -23,7 +23,9 @@ import io.github.ilyaskerbal.authentication.R
 @Composable
 fun AuthenticationForm(
 	modifier: Modifier = Modifier,
-	authenticationMode: AuthenticationMode
+	authenticationMode: AuthenticationMode,
+	onEmailChange: (email: String) -> Unit,
+	email: String
 ) {
 	Column(
 		modifier = modifier,
@@ -43,7 +45,11 @@ fun AuthenticationForm(
 				modifier = Modifier.padding(dimensionResource(id = R.dimen.padding_16)),
 				horizontalAlignment = Alignment.CenterHorizontally
 			) {
-				
+				EmailInput(
+					email = email,
+					onEmailChanged = onEmailChange
+				)
+				Spacer(modifier = Modifier.height(16.dp))
 			}
 		}
 	}
@@ -63,11 +69,19 @@ fun FormTile(
 @Preview(showSystemUi = true)
 @Composable
 private fun AuthenticationFormPreview() {
-	AuthenticationForm(authenticationMode = AuthenticationMode.LOG_IN)
+	AuthenticationForm(
+		authenticationMode = AuthenticationMode.LOG_IN,
+		onEmailChange = {},
+		email = "test@example.com"
+	)
 }
 
 @Preview(showSystemUi = true)
 @Composable
 private fun AuthenticationFormPreviewSignup() {
-	AuthenticationForm(authenticationMode = AuthenticationMode.SIGN_UP)
+	AuthenticationForm(
+		authenticationMode = AuthenticationMode.SIGN_UP,
+		onEmailChange = {},
+		email = "test@example.com"
+	)
 }
