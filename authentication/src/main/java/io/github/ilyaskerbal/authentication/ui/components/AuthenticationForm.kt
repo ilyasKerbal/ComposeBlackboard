@@ -24,8 +24,10 @@ import io.github.ilyaskerbal.authentication.R
 fun AuthenticationForm(
 	modifier: Modifier = Modifier,
 	authenticationMode: AuthenticationMode,
+	email: String,
 	onEmailChange: (email: String) -> Unit,
-	email: String
+	password: String,
+	onPasswordChange: (password: String) -> Unit
 ) {
 	Column(
 		modifier = modifier,
@@ -50,6 +52,10 @@ fun AuthenticationForm(
 					onEmailChanged = onEmailChange
 				)
 				Spacer(modifier = Modifier.height(16.dp))
+				PasswordInput(
+					password = password,
+					onPasswordChange = onPasswordChange
+				)
 			}
 		}
 	}
@@ -72,7 +78,9 @@ private fun AuthenticationFormPreview() {
 	AuthenticationForm(
 		authenticationMode = AuthenticationMode.LOG_IN,
 		onEmailChange = {},
-		email = "test@example.com"
+		email = "test@example.com",
+		password = "test",
+		onPasswordChange = {}
 	)
 }
 
@@ -82,6 +90,8 @@ private fun AuthenticationFormPreviewSignup() {
 	AuthenticationForm(
 		authenticationMode = AuthenticationMode.SIGN_UP,
 		onEmailChange = {},
-		email = "test@example.com"
+		email = "",
+		password = "",
+		onPasswordChange = {}
 	)
 }

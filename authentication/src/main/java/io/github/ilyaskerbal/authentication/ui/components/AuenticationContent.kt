@@ -32,6 +32,10 @@ fun AuthenticationContent(
 				email = authenticationState.email,
 				onEmailChange = {
 					eventHandler(AuthenticationEvent.EmailChanged(it))
+				},
+				password = authenticationState.password,
+				onPasswordChange = {
+					eventHandler(AuthenticationEvent.PasswordChanged(it))
 				}
 			)
 		}

@@ -13,6 +13,9 @@
     <string name="form_title_loin">Log in to your account</string>
 
     <string name="email_address">Email address</string>
+    <string name="password">Password</string>
 
     <!-- Content description -->
+    <string name="show_password">Show password</string>
+    <string name="hide_password">Hide password</string>
 </resources>
