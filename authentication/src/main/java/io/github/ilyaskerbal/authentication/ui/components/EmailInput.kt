@@ -20,6 +20,7 @@ fun EmailInput(
 	onEmailChanged: (email: String) -> Unit
 ) {
 	TextField(
+		modifier = modifier,
 		value = email,
 		onValueChange = onEmailChanged,
 		label = {
