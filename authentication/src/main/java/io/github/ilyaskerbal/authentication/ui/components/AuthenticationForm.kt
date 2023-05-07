@@ -48,11 +48,13 @@ fun AuthenticationForm(
 				horizontalAlignment = Alignment.CenterHorizontally
 			) {
 				EmailInput(
+					modifier = Modifier.fillMaxWidth(),
 					email = email,
 					onEmailChanged = onEmailChange
 				)
 				Spacer(modifier = Modifier.height(16.dp))
 				PasswordInput(
+					modifier = Modifier.fillMaxWidth(),
 					password = password,
 					onPasswordChange = onPasswordChange
 				)
