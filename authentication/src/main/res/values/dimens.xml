@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <dimen name="form_title_font_size">24sp</dimen>
+    <dimen name="form_top_spacer">32dp</dimen>
+    <dimen name="form_title_spacer">40dp</dimen>
+
+    <dimen name="padding_32">32dp</dimen>
+    <dimen name="padding_16">16dp</dimen>
+</resources>

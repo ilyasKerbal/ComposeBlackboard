@@ -9,5 +9,8 @@
     <string name="log_in">Log in</string>
     <string name="sign_up">Sign up</string>
 
+    <string name="form_title_signup">Sign up for an account</string>
+    <string name="form_title_loin">Log in to your account</string>
+
     <!-- Content description -->
 </resources>
