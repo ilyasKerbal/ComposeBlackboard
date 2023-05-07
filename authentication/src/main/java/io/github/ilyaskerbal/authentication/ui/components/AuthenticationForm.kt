@@ -11,6 +11,8 @@ import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
+import androidx.compose.ui.focus.FocusRequester
+import androidx.compose.ui.focus.focusRequester
 import androidx.compose.ui.res.dimensionResource
 import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.text.font.FontWeight
@@ -27,8 +29,10 @@ fun AuthenticationForm(
 	email: String,
 	onEmailChange: (email: String) -> Unit,
 	password: String,
-	onPasswordChange: (password: String) -> Unit
+	onPasswordChange: (password: String) -> Unit,
+	onAuthenticate: () -> Unit
 ) {
+	val passwordFocusRequester: FocusRequester = FocusRequester()
 	Column(
 		modifier = modifier,
 		horizontalAlignment = Alignment.CenterHorizontally
@@ -50,13 +54,17 @@ fun AuthenticationForm(
 				EmailInput(
 					modifier = Modifier.fillMaxWidth(),
 					email = email,
-					onEmailChanged = onEmailChange
+					onEmailChanged = onEmailChange,
+					onNextClicked = {
+						passwordFocusRequester.requestFocus()
+					}
 				)
 				Spacer(modifier = Modifier.height(16.dp))
 				PasswordInput(
-					modifier = Modifier.fillMaxWidth(),
+					modifier = Modifier.fillMaxWidth().focusRequester(passwordFocusRequester),
 					password = password,
-					onPasswordChange = onPasswordChange
+					onPasswordChange = onPasswordChange,
+					onDoneClicked = onAuthenticate
 				)
 			}
 		}
@@ -82,7 +90,8 @@ private fun AuthenticationFormPreview() {
 		onEmailChange = {},
 		email = "test@example.com",
 		password = "test",
-		onPasswordChange = {}
+		onPasswordChange = {},
+		onAuthenticate = {}
 	)
 }
 
@@ -94,6 +103,7 @@ private fun AuthenticationFormPreviewSignup() {
 		onEmailChange = {},
 		email = "",
 		password = "",
-		onPasswordChange = {}
+		onPasswordChange = {},
+		onAuthenticate = {}
 	)
 }

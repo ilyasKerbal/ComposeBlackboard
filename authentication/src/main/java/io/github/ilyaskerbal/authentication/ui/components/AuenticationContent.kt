@@ -36,6 +36,9 @@ fun AuthenticationContent(
 				password = authenticationState.password,
 				onPasswordChange = {
 					eventHandler(AuthenticationEvent.PasswordChanged(it))
+				},
+				onAuthenticate = {
+					eventHandler(AuthenticationEvent.Authenticate)
 				}
 			)
 		}
