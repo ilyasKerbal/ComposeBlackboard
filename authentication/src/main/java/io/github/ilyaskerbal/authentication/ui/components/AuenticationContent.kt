@@ -41,7 +41,10 @@ fun AuthenticationContent(
 					eventHandler(AuthenticationEvent.Authenticate)
 				},
 				satisfiedRequirements = authenticationState.validRequirements,
-				enableAuthentication = authenticationState.isAuthenticationEnabled()
+				enableAuthentication = authenticationState.isAuthenticationEnabled(),
+				toggleAuthenticationMode = {
+					eventHandler(AuthenticationEvent.ToggleAuthenticationMode)
+				}
 			)
 		}
 	}
