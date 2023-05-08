@@ -18,6 +18,9 @@
     <string name="toggle_need_account">Need an account?</string>
     <string name="toggle_use_account">I have an account</string>
 
+    <string name="error_title">Whoops!</string>
+    <string name="error_action">OK</string>
+
     <!-- Content description -->
     <string name="show_password">Show password</string>
     <string name="hide_password">Hide password</string>

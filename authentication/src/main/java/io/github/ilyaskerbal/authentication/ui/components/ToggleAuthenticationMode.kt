@@ -22,7 +22,7 @@ fun ToggleAuthenticationMode(
 		shadowElevation = 8.dp
 	) {
 		TextButton(
-			onClick = onToggleAuthentication
+			onClick = onToggleAuthentication,
 		) {
 			Text(
 				text = stringResource(id = authenticationMode.toggle)

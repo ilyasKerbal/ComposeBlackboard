@@ -27,7 +27,7 @@ class AuthenticationViewModel : ViewModel() {
 		}
 	}
 
-	private val _authenticationMode: MutableStateFlow<AuthenticationMode> = MutableStateFlow(AuthenticationMode.LOG_IN)
+	private val _authenticationMode: MutableStateFlow<AuthenticationMode> = MutableStateFlow(AuthenticationMode.SIGN_UP)
 
 	private val _isLoading: MutableStateFlow<Boolean> = MutableStateFlow(false)
 
