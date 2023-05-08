@@ -33,7 +33,8 @@ fun AuthenticationForm(
 	password: String,
 	onPasswordChange: (password: String) -> Unit,
 	onAuthenticate: () -> Unit,
-	satisfiedRequirements: List<PasswordRequirement>
+	satisfiedRequirements: List<PasswordRequirement>,
+	enableAuthentication: Boolean
 ) {
 	val passwordFocusRequester: FocusRequester = FocusRequester()
 	Column(
@@ -75,6 +76,12 @@ fun AuthenticationForm(
 				AnimatedVisibility(visible = authenticationMode == AuthenticationMode.SIGN_UP) {
 					Requirements(satisfiedRequirement = satisfiedRequirements)
 				}
+				Spacer(modifier = Modifier.height(16.dp))
+				AuthenticationButton(
+					authenticationMode = authenticationMode,
+					enableAuthentication = enableAuthentication,
+					onAuthenticate = onAuthenticate
+				)
 			}
 		}
 	}
@@ -101,7 +108,8 @@ private fun AuthenticationFormPreview() {
 		password = "test",
 		onPasswordChange = {},
 		onAuthenticate = {},
-		satisfiedRequirements = listOf()
+		satisfiedRequirements = listOf(),
+		enableAuthentication = true
 	)
 }
 
@@ -118,6 +126,7 @@ private fun AuthenticationFormPreviewSignup() {
 		satisfiedRequirements = listOf(
 			PasswordRequirement.EIGHT_CHARACTERS,
 			PasswordRequirement.ONE_DIGIT
-		)
+		),
+		enableAuthentication = false
 	)
 }
