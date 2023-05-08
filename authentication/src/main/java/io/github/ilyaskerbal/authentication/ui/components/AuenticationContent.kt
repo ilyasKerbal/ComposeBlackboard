@@ -39,7 +39,8 @@ fun AuthenticationContent(
 				},
 				onAuthenticate = {
 					eventHandler(AuthenticationEvent.Authenticate)
-				}
+				},
+				satisfiedRequirements = authenticationState.validRequirements
 			)
 		}
 	}

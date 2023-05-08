@@ -1,5 +1,6 @@
 package io.github.ilyaskerbal.authentication.ui.components
 
+import androidx.compose.animation.AnimatedVisibility
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.Spacer
 import androidx.compose.foundation.layout.fillMaxWidth
@@ -20,6 +21,7 @@ import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import io.github.ilyaskerbal.authentication.AuthenticationMode
+import io.github.ilyaskerbal.authentication.PasswordRequirement
 import io.github.ilyaskerbal.authentication.R
 
 @Composable
@@ -30,7 +32,8 @@ fun AuthenticationForm(
 	onEmailChange: (email: String) -> Unit,
 	password: String,
 	onPasswordChange: (password: String) -> Unit,
-	onAuthenticate: () -> Unit
+	onAuthenticate: () -> Unit,
+	satisfiedRequirements: List<PasswordRequirement>
 ) {
 	val passwordFocusRequester: FocusRequester = FocusRequester()
 	Column(
@@ -61,11 +64,17 @@ fun AuthenticationForm(
 				)
 				Spacer(modifier = Modifier.height(16.dp))
 				PasswordInput(
-					modifier = Modifier.fillMaxWidth().focusRequester(passwordFocusRequester),
+					modifier = Modifier
+						.fillMaxWidth()
+						.focusRequester(passwordFocusRequester),
 					password = password,
 					onPasswordChange = onPasswordChange,
 					onDoneClicked = onAuthenticate
 				)
+				Spacer(modifier = Modifier.height(16.dp))
+				AnimatedVisibility(visible = authenticationMode == AuthenticationMode.SIGN_UP) {
+					Requirements(satisfiedRequirement = satisfiedRequirements)
+				}
 			}
 		}
 	}
@@ -91,7 +100,8 @@ private fun AuthenticationFormPreview() {
 		email = "test@example.com",
 		password = "test",
 		onPasswordChange = {},
-		onAuthenticate = {}
+		onAuthenticate = {},
+		satisfiedRequirements = listOf()
 	)
 }
 
@@ -104,6 +114,10 @@ private fun AuthenticationFormPreviewSignup() {
 		email = "",
 		password = "",
 		onPasswordChange = {},
-		onAuthenticate = {}
+		onAuthenticate = {},
+		satisfiedRequirements = listOf(
+			PasswordRequirement.EIGHT_CHARACTERS,
+			PasswordRequirement.ONE_DIGIT
+		)
 	)
 }
