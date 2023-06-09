@@ -17,3 +17,4 @@ rootProject.name = "ComposeBlackboard"
 include ':app'
 include ':settingsapp'
 include ':authentication'
+include ':navigationapp'
