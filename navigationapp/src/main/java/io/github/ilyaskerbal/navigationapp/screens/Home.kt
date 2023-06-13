@@ -12,7 +12,11 @@ import androidx.compose.material.rememberScaffoldState
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.res.stringResource
+import androidx.navigation.compose.rememberNavController
 import io.github.ilyaskerbal.navigationapp.R
+import io.github.ilyaskerbal.navigationapp.components.BottomNavigationBar
+import io.github.ilyaskerbal.navigationapp.components.Navigation
+import io.github.ilyaskerbal.navigationapp.utils.Destination
 
 @SuppressLint("UnusedMaterialScaffoldPaddingParameter")
 @Composable
@@ -20,6 +24,7 @@ fun Home(
 	modifier: Modifier = Modifier
 ) {
 	val scaffoldState = rememberScaffoldState()
+	val navHostController = rememberNavController()
 	Scaffold(
 		modifier = modifier,
 		scaffoldState = scaffoldState,
@@ -35,8 +40,17 @@ fun Home(
 					contentDescription = stringResource(id = R.string.cd_create_item)
 				)
 			}
+		},
+		bottomBar = {
+			BottomNavigationBar(
+				currentDestination = Destination.Feed,
+				onNavigate = {}
+			)
 		}
 	) {
-		
+		Navigation(
+			modifier = modifier,
+			navHostController = navHostController
+		)
 	}
 }

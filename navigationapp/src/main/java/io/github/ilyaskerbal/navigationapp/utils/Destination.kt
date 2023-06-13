@@ -8,10 +8,11 @@ import androidx.compose.ui.graphics.vector.ImageVector
 
 sealed class Destination(
 	val title: String,
+	val path: String,
 	val icon: ImageVector? = null
 ) {
-	object Home: Destination(title = "Home")
-	object Calendar: Destination(title = "Calendar", icon = Icons.Default.DateRange)
-	object Contacts: Destination(title = "Contacts", icon = Icons.Default.Person)
-	object Feed: Destination(title = "Feed", icon = Icons.Default.List)
+	object Home: Destination(title = "Home", path = "home")
+	object Calendar: Destination(title = "Calendar", path = "calendar", icon = Icons.Default.DateRange)
+	object Contacts: Destination(title = "Contacts", path = "contacts", icon = Icons.Default.Person)
+	object Feed: Destination(title = "Feed", path = "feed",icon = Icons.Default.List)
 }
