@@ -3,16 +3,20 @@ package io.github.ilyaskerbal.navigationapp.screens
 import android.annotation.SuppressLint
 import androidx.compose.material.FloatingActionButton
 import androidx.compose.material.Icon
+import androidx.compose.material.IconButton
 import androidx.compose.material.Scaffold
 import androidx.compose.material.Text
 import androidx.compose.material.TopAppBar
 import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.filled.Add
+import androidx.compose.material.icons.filled.Info
+import androidx.compose.material.icons.filled.MoreVert
 import androidx.compose.material.rememberScaffoldState
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.State
 import androidx.compose.runtime.derivedStateOf
 import androidx.compose.runtime.remember
+import androidx.compose.runtime.rememberCoroutineScope
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.res.stringResource
 import androidx.navigation.NavBackStackEntry
@@ -23,6 +27,7 @@ import io.github.ilyaskerbal.navigationapp.R
 import io.github.ilyaskerbal.navigationapp.components.BottomNavigationBar
 import io.github.ilyaskerbal.navigationapp.components.Navigation
 import io.github.ilyaskerbal.navigationapp.utils.Destination
+import kotlinx.coroutines.launch
 
 @SuppressLint("UnusedMaterialScaffoldPaddingParameter")
 @Composable
@@ -37,13 +42,29 @@ fun Home(
 			navBackStackEntry?.value?.destination?.route?.let { Destination.fromString(it) } ?: run { Destination.Home }
 		}
 	}
-		Scaffold(
+	val coroutineScope = rememberCoroutineScope()
+	Scaffold(
 		modifier = modifier,
 		scaffoldState = scaffoldState,
 		topBar = {
-			TopAppBar(title = {
-				Text(text = "Home")
-			})
+			TopAppBar(
+				title = { Text(text = "Home") },
+				actions = {
+					val snackbarMessage = stringResource(id = R.string.not_available)
+					if (currentDestination.value != Destination.Feed) {
+						IconButton(onClick = {
+							coroutineScope.launch {
+								scaffoldState.snackbarHostState.showSnackbar(snackbarMessage)
+							}
+						}) {
+							Icon(
+								imageVector = Icons.Default.Info,
+								contentDescription = stringResource(id = R.string.cd_more_information)
+							)
+						}
+					}
+				}
+			)
 		},
 		floatingActionButton = {
 			FloatingActionButton(onClick = { /*TODO*/ }) {
