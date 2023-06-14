@@ -10,8 +10,14 @@ import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.filled.Add
 import androidx.compose.material.rememberScaffoldState
 import androidx.compose.runtime.Composable
+import androidx.compose.runtime.State
+import androidx.compose.runtime.derivedStateOf
+import androidx.compose.runtime.remember
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.res.stringResource
+import androidx.navigation.NavBackStackEntry
+import androidx.navigation.NavGraph.Companion.findStartDestination
+import androidx.navigation.compose.currentBackStackEntryAsState
 import androidx.navigation.compose.rememberNavController
 import io.github.ilyaskerbal.navigationapp.R
 import io.github.ilyaskerbal.navigationapp.components.BottomNavigationBar
@@ -25,7 +31,13 @@ fun Home(
 ) {
 	val scaffoldState = rememberScaffoldState()
 	val navHostController = rememberNavController()
-	Scaffold(
+	val navBackStackEntry: State<NavBackStackEntry?> = navHostController.currentBackStackEntryAsState()
+	val currentDestination: State<Destination> = remember(navBackStackEntry) {
+		derivedStateOf {
+			navBackStackEntry?.value?.destination?.route?.let { Destination.fromString(it) } ?: run { Destination.Home }
+		}
+	}
+		Scaffold(
 		modifier = modifier,
 		scaffoldState = scaffoldState,
 		topBar = {
@@ -43,8 +55,16 @@ fun Home(
 		},
 		bottomBar = {
 			BottomNavigationBar(
-				currentDestination = Destination.Feed,
-				onNavigate = {}
+				currentDestination = currentDestination.value,
+				onNavigate = {
+					navHostController.navigate(it.path) {
+						popUpTo(navHostController.graph.findStartDestination().id) {
+							saveState = true
+						}
+						launchSingleTop = true
+						restoreState = true
+					}
+				}
 			)
 		}
 	) {

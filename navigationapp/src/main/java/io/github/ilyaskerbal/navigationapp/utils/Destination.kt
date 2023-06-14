@@ -15,4 +15,13 @@ sealed class Destination(
 	object Calendar: Destination(title = "Calendar", path = "calendar", icon = Icons.Default.DateRange)
 	object Contacts: Destination(title = "Contacts", path = "contacts", icon = Icons.Default.Person)
 	object Feed: Destination(title = "Feed", path = "feed",icon = Icons.Default.List)
+
+	companion object {
+		fun fromString(value: String): Destination = when(value) {
+			Feed.path -> Feed
+			Calendar.path -> Calendar
+			Contacts.path -> Contacts
+			else -> Home
+		}
+	}
 }
