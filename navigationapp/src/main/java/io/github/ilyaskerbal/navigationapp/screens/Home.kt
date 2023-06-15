@@ -5,15 +5,9 @@ import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.material.DrawerValue
 import androidx.compose.material.FloatingActionButton
 import androidx.compose.material.Icon
-import androidx.compose.material.IconButton
 import androidx.compose.material.Scaffold
-import androidx.compose.material.Text
-import androidx.compose.material.TopAppBar
 import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.filled.Add
-import androidx.compose.material.icons.filled.Info
-import androidx.compose.material.icons.filled.Menu
-import androidx.compose.material.icons.filled.MoreVert
 import androidx.compose.material.rememberDrawerState
 import androidx.compose.material.rememberScaffoldState
 import androidx.compose.runtime.Composable
@@ -31,6 +25,7 @@ import io.github.ilyaskerbal.navigationapp.R
 import io.github.ilyaskerbal.navigationapp.components.BottomNavigationBar
 import io.github.ilyaskerbal.navigationapp.components.DrawerContent
 import io.github.ilyaskerbal.navigationapp.components.Navigation
+import io.github.ilyaskerbal.navigationapp.components.TopAppBar
 import io.github.ilyaskerbal.navigationapp.utils.Destination
 import kotlinx.coroutines.launch
 
@@ -54,33 +49,9 @@ fun Home(
 		scaffoldState = scaffoldState,
 		topBar = {
 			TopAppBar(
-				title = { Text(text = "Home") },
-				actions = {
-					val snackbarMessage = stringResource(id = R.string.not_available)
-					if (currentDestination.value != Destination.Feed) {
-						IconButton(onClick = {
-							coroutineScope.launch {
-								scaffoldState.snackbarHostState.showSnackbar(snackbarMessage)
-							}
-						}) {
-							Icon(
-								imageVector = Icons.Default.Info,
-								contentDescription = stringResource(id = R.string.cd_more_information)
-							)
-						}
-					}
-				},
-				navigationIcon = {
-					IconButton(onClick = {
-						coroutineScope.launch {
-							drawerState.open()
-						}
-					}) {
-						Icon(imageVector = Icons.Default.Menu, contentDescription = stringResource(
-							id = R.string.cd_open_navigation_drawer
-						))
-					}
-				}
+				currentDestination = currentDestination.value,
+				coroutineScope = coroutineScope,
+				scaffoldState =  scaffoldState
 			)
 		},
 		floatingActionButton = {

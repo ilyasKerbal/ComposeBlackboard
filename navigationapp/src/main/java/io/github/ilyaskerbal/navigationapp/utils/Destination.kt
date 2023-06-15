@@ -11,15 +11,26 @@ import androidx.compose.ui.graphics.vector.ImageVector
 sealed class Destination(
 	val title: String,
 	val path: String,
-	val icon: ImageVector? = null
+	val icon: ImageVector? = null,
+	val isRootDestination: Boolean = true
 ) {
 	object Home: Destination(title = "Home", path = "home")
 	object Calendar: Destination(title = "Calendar", path = "calendar", icon = Icons.Default.DateRange)
 	object Contacts: Destination(title = "Contacts", path = "contacts", icon = Icons.Default.Person)
 	object Feed: Destination(title = "Feed", path = "feed",icon = Icons.Default.List)
 
-	object Settings: Destination(title = "Settings", path = "settings", icon = Icons.Default.Settings)
-	object Upgrade: Destination(title = "Upgrade", path = "upgrade", icon = Icons.Default.Star)
+	object Settings: Destination(
+		title = "Settings",
+		path = "settings",
+		icon = Icons.Default.Settings,
+		isRootDestination = false
+	)
+	object Upgrade: Destination(
+		title = "Upgrade",
+		path = "upgrade",
+		icon = Icons.Default.Star,
+		isRootDestination = false
+	)
 
 	companion object {
 		fun fromString(value: String): Destination = when(value) {
