@@ -1,6 +1,8 @@
 package io.github.ilyaskerbal.navigationapp.screens
 
 import android.annotation.SuppressLint
+import androidx.compose.foundation.layout.fillMaxWidth
+import androidx.compose.material.DrawerValue
 import androidx.compose.material.FloatingActionButton
 import androidx.compose.material.Icon
 import androidx.compose.material.IconButton
@@ -10,7 +12,9 @@ import androidx.compose.material.TopAppBar
 import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.filled.Add
 import androidx.compose.material.icons.filled.Info
+import androidx.compose.material.icons.filled.Menu
 import androidx.compose.material.icons.filled.MoreVert
+import androidx.compose.material.rememberDrawerState
 import androidx.compose.material.rememberScaffoldState
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.State
@@ -25,6 +29,7 @@ import androidx.navigation.compose.currentBackStackEntryAsState
 import androidx.navigation.compose.rememberNavController
 import io.github.ilyaskerbal.navigationapp.R
 import io.github.ilyaskerbal.navigationapp.components.BottomNavigationBar
+import io.github.ilyaskerbal.navigationapp.components.DrawerContent
 import io.github.ilyaskerbal.navigationapp.components.Navigation
 import io.github.ilyaskerbal.navigationapp.utils.Destination
 import kotlinx.coroutines.launch
@@ -34,7 +39,8 @@ import kotlinx.coroutines.launch
 fun Home(
 	modifier: Modifier = Modifier
 ) {
-	val scaffoldState = rememberScaffoldState()
+	val drawerState = rememberDrawerState(initialValue = DrawerValue.Closed)
+	val scaffoldState = rememberScaffoldState(drawerState = drawerState)
 	val navHostController = rememberNavController()
 	val navBackStackEntry: State<NavBackStackEntry?> = navHostController.currentBackStackEntryAsState()
 	val currentDestination: State<Destination> = remember(navBackStackEntry) {
@@ -63,6 +69,17 @@ fun Home(
 							)
 						}
 					}
+				},
+				navigationIcon = {
+					IconButton(onClick = {
+						coroutineScope.launch {
+							drawerState.open()
+						}
+					}) {
+						Icon(imageVector = Icons.Default.Menu, contentDescription = stringResource(
+							id = R.string.cd_open_navigation_drawer
+						))
+					}
 				}
 			)
 		},
@@ -86,6 +103,17 @@ fun Home(
 						restoreState = true
 					}
 				}
+			)
+		},
+		drawerContent = {
+			DrawerContent(
+				onNavigationSelected = {
+				   navHostController.navigate(it.path)
+					coroutineScope.launch {
+						drawerState.close()
+					}
+				},
+				modifier = Modifier.fillMaxWidth()
 			)
 		}
 	) {

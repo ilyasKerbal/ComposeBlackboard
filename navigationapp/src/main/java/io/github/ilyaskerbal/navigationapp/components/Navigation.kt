@@ -48,5 +48,19 @@ fun Navigation(
 				)
 			}
 		}
+
+		composable(route = Destination.Settings.path) {
+			ContentArea(
+				destination = Destination.Settings,
+				modifier = Modifier.fillMaxSize()
+			)
+		}
+
+		composable(route = Destination.Upgrade.path) {
+			ContentArea(
+				destination = Destination.Upgrade,
+				modifier = Modifier.fillMaxSize()
+			)
+		}
 	}
 }

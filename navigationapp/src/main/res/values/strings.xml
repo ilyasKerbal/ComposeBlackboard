@@ -3,7 +3,14 @@
 
     <string name="not_available">Item not available yet</string>
 
+    <string name="label_name">Compose Academy</string>
+    <string name="label_email">contact@compose.academy</string>
+
+    <string name="log_out">Log Out</string>
+
     <!-- Content description -->
     <string name="cd_create_item">Create a new item</string>
     <string name="cd_more_information">Show more information</string>
+
+    <string name="cd_open_navigation_drawer">Open navigation drawer</string>
 </resources>
