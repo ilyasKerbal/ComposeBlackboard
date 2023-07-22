@@ -3,4 +3,8 @@
     <string name="play_video">Play video</string>
     <string name="cd_play">Play video</string>
     <string name="cd_pause">Pause video</string>
+
+    <string name="label_display_controls">Display video controls</string>
+    <string name="label_hide_controls">Hide video controls</string>
+
 </resources>

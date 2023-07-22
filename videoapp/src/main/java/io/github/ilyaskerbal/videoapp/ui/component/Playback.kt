@@ -35,6 +35,7 @@ fun Playback(
 	
 	DisposableEffect(
 		AndroidView(
+			modifier = modifier,
 			factory = {
 				PlayerView(it).apply {
 					layoutParams = ViewGroup.LayoutParams(
